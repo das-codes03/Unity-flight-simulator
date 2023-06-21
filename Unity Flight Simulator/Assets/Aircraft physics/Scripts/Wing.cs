@@ -18,13 +18,14 @@ public class Wing : MonoBehaviour
     public LiftCurve liftCurveR;
     public DragCurve dragCurve;
     public int subdivisions;
-    public ControlSurface[] surfaces;
+    ControlSurface[] surfaces;
     public Force[] forces;
 
     void Start()
     {
         airfoils = new Airfoil[subdivisions];
         forces = new Force[subdivisions];
+        surfaces = this.GetComponentsInChildren<ControlSurface>();
         for (int i = 0; i < airfoils.Length; i++)
         {
             airfoils[i] = new Airfoil();

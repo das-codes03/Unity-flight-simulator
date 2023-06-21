@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class AircraftDynamics : MonoBehaviour
 {
-    public Transform COM;
-    Rigidbody rBody;
-    public Wing[] wings;
+    public Transform COM;   //center of mass object
+    Rigidbody rBody;        //rigidbody attached to this object
+    Wing[] wings;    //list of wings
     public Vector3 airflow;
     void Start()
     {
         rBody = this.GetComponent<Rigidbody>();
+        wings = this.GetComponentsInChildren<Wing>();
     }
 
     // Update is called once per frame
